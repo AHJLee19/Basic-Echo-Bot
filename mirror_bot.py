@@ -20,3 +20,12 @@ if prompt := st.chat_input("What would you like to say?"):
     # add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
+    # Saving the response from the user
+    response = f"Echo: {prompt}"
+
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
+
+    #Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
